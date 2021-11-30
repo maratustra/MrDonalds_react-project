@@ -49,14 +49,14 @@ const ButtonText = styled.span`
 `;
 
 export const NavBar = () => (
-	<NavBarStyled>
-		<Logo>
-			<ImgLogo src={logoImg} alt="logo" />
-			<H1>MrDonald&apos;s</H1>
-		</Logo>
-		<Button>
-			<img src={userImg} alt="user" />
-			<ButtonText>войти</ButtonText>
-		</Button>
-	</NavBarStyled>
+  <NavBarStyled>
+    <Logo>
+      <ImgLogo src={logoImg} alt="logo" />
+      <H1>MrDonald&apos;s</H1>
+    </Logo>
+    <Button>
+      <img src={userImg} alt="user" />
+      <ButtonText>войти</ButtonText>
+    </Button>
+  </NavBarStyled>
 );

@@ -52,12 +52,12 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 function App() {
-	return (
-		<>
-			<GlobalStyle />
-			<NavBar />
-		</>
-	);
+  return (
+    <>
+      <GlobalStyle />
+      <NavBar />
+    </>
+  );
 }
 
 export default App;
