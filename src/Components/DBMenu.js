@@ -64,7 +64,7 @@ const dbMenu = {
       price: 75,
     },
     {
-      name: 'Нагетцы',
+      name: 'Нагетcы',
       img: '/menu/nuggets.png',
       id: 4,
       price: 100,
