@@ -35,7 +35,7 @@ const CardNameAndPrice = styled.div`
   display: flex;
   justify-content: space-between;
   margin: 20px 53px 170px 37px;
-  font-family: Pacifico;
+  font-family: 'Pacifico';
   font-size: 30px;
   line-height: 53px;
 `;
