@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
-import dbMenu from './DBMenu';
+import dbMenu from '../DBMenu';
 import { ListItem } from './ListItem';
-import bannerImg from '../image/banner.png';
+import bannerImg from '../../image/banner.png';
 
 const Banner = styled.div`
   width: 100%;

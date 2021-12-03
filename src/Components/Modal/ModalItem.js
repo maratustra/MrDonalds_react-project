@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Button } from './ModalButton';
+import { Button } from '../Style/CommonButton';
 
 const Overlay = styled.div`
   position: fixed;

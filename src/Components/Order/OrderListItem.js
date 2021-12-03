@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import trashImg from '../image/rubbish.svg';
+import trashImg from '../../image/rubbish.svg';
 
 const OrderItemStyled = styled.li`
   display: flex;
