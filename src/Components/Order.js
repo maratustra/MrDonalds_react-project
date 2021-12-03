@@ -26,9 +26,7 @@ const OrderContent = styled.div`
   flex-grow: 1;
 `;
 
-const OrderList = styled.ul`
-
-`;
+const OrderList = styled.ul``;
 
 const Total = styled.div`
   display: flex;
@@ -44,15 +42,19 @@ const TotalPrice = styled.span`
   margin-left: 20px;
 `;
 
-export const Order = () => (
+const EmptyList = styled.p`
+  text-align: center;
+`;
+
+export const Order = ({ orders }) => (
   <OrderStyled>
     <OrderTitle>Ваш заказ</OrderTitle>
     <OrderContent>
-      <OrderList>
-        <OrderListItem></OrderListItem>
-        <OrderListItem></OrderListItem>
-        <OrderListItem></OrderListItem>
-      </OrderList>
+      {orders.length ?
+        <OrderList>
+          {orders.map((order, index) => <OrderListItem order={order} key={index} />)}
+        </OrderList> :
+        <EmptyList>Список заказов пуст</EmptyList>}
     </OrderContent>
     <Total>
       <span>Итого</span>
@@ -60,5 +62,5 @@ export const Order = () => (
       <TotalPrice>2500 P</TotalPrice>
     </Total>
     <Button>Оформить</Button>
-  </OrderStyled>
+  </OrderStyled >
 );

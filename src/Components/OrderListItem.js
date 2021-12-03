@@ -12,7 +12,7 @@ const ItemName = styled.span`
 `;
 
 const ItemPrice = styled.span`
-  margin-left: 2px;
+  margin-left: 20px;
   margin-right: 10px;
   min-width: 65px;
   text-align: right;
@@ -30,11 +30,12 @@ const TrashButton = styled.button`
   background-repeat: no-repeat;
 `;
 
-export const OrderListItem = () => (
+export const OrderListItem = ({ order }) => (
   <OrderItemStyled>
-    <ItemName>JS Burger</ItemName>
+    <ItemName>{order.name}</ItemName>
     <span>2</span>
-    <ItemPrice>275 P</ItemPrice>
+    <ItemPrice>{order.price.toLocaleString('ru-RU',
+      { style: 'currency', currency: 'RUB' })}</ItemPrice>
     <TrashButton />
   </OrderItemStyled>
 );

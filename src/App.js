@@ -5,18 +5,20 @@ import { GlobalStyle } from './Components/GlobalStyle';
 import { ModalItem } from './Components/ModalItem';
 import { Order } from './Components/Order';
 import { useOpenItem } from './Components/Hooks/useOpenItem';
+import { useOrders } from './Components/Hooks/useOrders';
 
 function App() {
 
   const openItem = useOpenItem();
+  const orders = useOrders();
 
   return (
     <>
       <GlobalStyle />
       <NavBar />
-      <Order />
+      <Order {...orders} />
       <Menu {...openItem} />
-      <ModalItem {...openItem} />
+      {openItem.openItem && <ModalItem {...openItem} {...orders} />}
     </>
   );
 }
