@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Button } from '../Style/CommonButton';
+import { CountItem } from './CountItem';
+import { useCount } from '../Hooks/useCount';
 
 const Overlay = styled.div`
   position: fixed;
@@ -19,7 +21,6 @@ const Modal = styled.div`
   width: 600px;
   height: 600px;
   background-color: #fff;
-  text-align: center;
 `;
 
 const Banner = styled.div`
@@ -34,13 +35,15 @@ const Banner = styled.div`
 const CardNameAndPrice = styled.div`
   display: flex;
   justify-content: space-between;
-  margin: 20px 53px 170px 37px;
+  margin: 20px 53px 20px 37px;
   font-family: 'Pacifico';
   font-size: 30px;
   line-height: 53px;
 `;
 
 export const ModalItem = ({ openItem, setOpenItem, orders, setOrders }) => {
+
+  const counter = useCount();
 
   const closeModal = e => {
     if (e.target.id === 'overlay') setOpenItem(null);
@@ -68,6 +71,7 @@ export const ModalItem = ({ openItem, setOpenItem, orders, setOrders }) => {
             minimumFractionDigits: 0
           })}</p>
         </CardNameAndPrice>
+        <CountItem {...counter} />
         <Button onClick={addToOrder}>Добавить</Button>
       </Modal>
     </Overlay>
