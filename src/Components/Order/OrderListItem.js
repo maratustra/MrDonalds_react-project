@@ -6,11 +6,18 @@ import { formatCurrency } from '../Functions/secondaryFunctions';
 
 const OrderItemStyled = styled.li`
   display: flex;
+  flex-direction: row;
+  justify-content: space-between;
   margin: 15px 0;
 `;
 
 const ItemName = styled.span`
   flex-grow: 1;
+`;
+
+const ItemCompose = styled.div`
+  display: flex;
+  flex-direction: column;
 `;
 
 const ItemPrice = styled.span`
@@ -20,6 +27,12 @@ const ItemPrice = styled.span`
   text-align: right;
 `;
 
+const ToppingsListItem = styled.span`
+  font-family: 'Roboto';
+  font-size: 14px;
+  line-height: 16px;
+  color: #9A9A9A;
+`;
 
 const TrashButton = styled.button`
   width: 24px;
@@ -35,9 +48,15 @@ const TrashButton = styled.button`
 export const OrderListItem = ({ order }) => (
 
   <OrderItemStyled>
-    <ItemName>{order.name}</ItemName>
+    <ItemCompose>
+      <ItemName>{order.name}</ItemName>
+      {order.topping
+        .filter(topping => topping.checked)
+        .map((toppingItem, index) => <ToppingsListItem key={index}>{toppingItem.name}</ToppingsListItem>)}
+    </ItemCompose>
     <span>{order.count}</span>
-    <ItemPrice>{formatCurrency(totalPriceItems(order))}</ItemPrice>
-    <TrashButton />
+    <ItemPrice>{formatCurrency(totalPriceItems(order))}
+      <TrashButton />
+    </ItemPrice>
   </OrderItemStyled>
 );

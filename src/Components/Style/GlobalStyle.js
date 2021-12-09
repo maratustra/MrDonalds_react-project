@@ -55,4 +55,8 @@ export const GlobalStyle = createGlobalStyle`
     font-family: Pacifico;
   }
 
+  p {
+    margin: 0;
+  }
+
 `;

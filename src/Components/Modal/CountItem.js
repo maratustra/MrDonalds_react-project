@@ -4,7 +4,7 @@ import styled from 'styled-components';
 const CountWraper = styled.div`
   display: flex;
   justify-content: space-between;
-  margin: 20px 53px 50px 37px;
+  margin: 0 53px 20px 37px;
 `;
 
 const CountInput = styled.input`
