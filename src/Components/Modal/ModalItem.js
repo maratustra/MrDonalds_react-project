@@ -3,6 +3,8 @@ import styled from 'styled-components';
 import { Button } from '../Style/CommonButton';
 import { CountItem } from './CountItem';
 import { useCount } from '../Hooks/useCount';
+import { totalPriceItems } from '../Functions/secondaryFunctions';
+import { formatCurrency } from '../Functions/secondaryFunctions';
 
 const Overlay = styled.div`
   position: fixed;
@@ -41,6 +43,13 @@ const CardNameAndPrice = styled.div`
   line-height: 53px;
 `;
 
+const TotalPriceItem = styled.div`
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 53px 50px 37px;
+`;
+
+
 export const ModalItem = ({ openItem, setOpenItem, orders, setOrders }) => {
 
   const counter = useCount();
@@ -50,7 +59,8 @@ export const ModalItem = ({ openItem, setOpenItem, orders, setOrders }) => {
   };
 
   const order = {
-    ...openItem
+    ...openItem,
+    count: counter.count
   };
 
   const addToOrder = () => {
@@ -65,13 +75,13 @@ export const ModalItem = ({ openItem, setOpenItem, orders, setOrders }) => {
         <Banner img={openItem.img} />
         <CardNameAndPrice>
           <p>{openItem.name}</p>
-          <p>{openItem.price.toLocaleString('ru-RU', {
-            style: 'currency',
-            currency: 'RUB',
-            minimumFractionDigits: 0
-          })}</p>
+          <p>{formatCurrency(openItem.price)}</p>
         </CardNameAndPrice>
         <CountItem {...counter} />
+        <TotalPriceItem>
+          <span>Цена:</span>
+          <span>{formatCurrency(totalPriceItems(order))}</span>
+        </TotalPriceItem>
         <Button onClick={addToOrder}>Добавить</Button>
       </Modal>
     </Overlay>

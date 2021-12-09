@@ -32,6 +32,11 @@ export const GlobalStyle = createGlobalStyle`
     font: inherit;
   }
 
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+  }
+
   a {
     text-decoration: none;
     color: inherit;
@@ -49,4 +54,5 @@ export const GlobalStyle = createGlobalStyle`
     padding: 0;
     font-family: Pacifico;
   }
+
 `;

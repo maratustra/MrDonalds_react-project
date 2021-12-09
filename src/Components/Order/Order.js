@@ -2,6 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 import { Button } from '../Style/CommonButton';
 import { OrderListItem } from './OrderListItem';
+import { totalPriceItems } from '../Functions/secondaryFunctions';
+import { formatCurrency } from '../Functions/secondaryFunctions';
 
 const OrderStyled = styled.section`
   position: fixed;
@@ -46,21 +48,26 @@ const EmptyList = styled.p`
   text-align: center;
 `;
 
-export const Order = ({ orders }) => (
-  <OrderStyled>
-    <OrderTitle>Ваш заказ</OrderTitle>
-    <OrderContent>
-      {orders.length ?
-        <OrderList>
-          {orders.map((order, index) => <OrderListItem order={order} key={index} />)}
-        </OrderList> :
-        <EmptyList>Список заказов пуст</EmptyList>}
-    </OrderContent>
-    <Total>
-      <span>Итого</span>
-      <span>7</span>
-      <TotalPrice>2500 P</TotalPrice>
-    </Total>
-    <Button>Оформить</Button>
-  </OrderStyled >
-);
+export const Order = ({ orders }) => {
+
+  const total = orders.reduce((result, order) => totalPriceItems(order) + result, 0);
+
+  return (
+    <OrderStyled>
+      <OrderTitle>Ваш заказ</OrderTitle>
+      <OrderContent>
+        {orders.length ?
+          <OrderList>
+            {orders.map((order, index) => <OrderListItem order={order} key={index} />)}
+          </OrderList> :
+          <EmptyList>Список заказов пуст</EmptyList>}
+      </OrderContent>
+      <Total>
+        <span>Итого</span>
+        <span>7</span>
+        <TotalPrice>{formatCurrency(total)}</TotalPrice>
+      </Total>
+      <Button>Оформить</Button>
+    </OrderStyled >
+  );
+};
