@@ -39,7 +39,7 @@ const TrashButton = styled.button`
   background-repeat: no-repeat;
 `;
 
-export const OrderListItem = ({ order }) => (
+export const OrderListItem = ({ order, deleteItem, index }) => (
 
   <OrderItemStyled>
     <ItemCompose>
@@ -51,7 +51,7 @@ export const OrderListItem = ({ order }) => (
     </ItemCompose>
     <span>{order.count}</span>
     <ItemPrice>{formatCurrency(totalPriceItems(order))}
-      <TrashButton />
+      <TrashButton onClick={() => deleteItem(index)} />
     </ItemPrice>
   </OrderItemStyled>
 );

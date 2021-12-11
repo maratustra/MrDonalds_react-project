@@ -2,7 +2,6 @@ import React from 'react';
 import { NavBar } from './Components/NavBar/NavBar';
 import { Menu } from './Components/Menu/Menu';
 import { GlobalStyle } from './Components/Style/GlobalStyle';
-// import { CountItem } from './Components/Modal/CountItem';
 import { ModalItem } from './Components/Modal/ModalItem';
 import { Order } from './Components/Order/Order';
 import { useOpenItem } from './Components/Hooks/useOpenItem';
