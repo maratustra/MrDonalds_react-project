@@ -34,6 +34,13 @@ const ToppingsListItem = styled.span`
   color: #9A9A9A;
 `;
 
+const ChoicesListItem = styled.span`
+  font-family: 'Roboto';
+  font-size: 14px;
+  line-height: 16px;
+  color: #9A9A9A;
+`;
+
 const TrashButton = styled.button`
   width: 24px;
   height: 24px;
@@ -53,6 +60,7 @@ export const OrderListItem = ({ order }) => (
       {order.topping
         .filter(topping => topping.checked)
         .map((toppingItem, index) => <ToppingsListItem key={index}>{toppingItem.name}</ToppingsListItem>)}
+      <ChoicesListItem>{order.choice}</ChoicesListItem>
     </ItemCompose>
     <span>{order.count}</span>
     <ItemPrice>{formatCurrency(totalPriceItems(order))}
