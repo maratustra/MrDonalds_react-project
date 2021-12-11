@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import trashImg from '../../image/rubbish.svg';
 import { totalPriceItems } from '../Functions/secondaryFunctions';
 import { formatCurrency } from '../Functions/secondaryFunctions';
+import { ListItem } from '../Style/ToppingsStyle';
 
 const OrderItemStyled = styled.li`
   display: flex;
@@ -27,20 +28,6 @@ const ItemPrice = styled.span`
   text-align: right;
 `;
 
-const ToppingsListItem = styled.span`
-  font-family: 'Roboto';
-  font-size: 14px;
-  line-height: 16px;
-  color: #9A9A9A;
-`;
-
-const ChoicesListItem = styled.span`
-  font-family: 'Roboto';
-  font-size: 14px;
-  line-height: 16px;
-  color: #9A9A9A;
-`;
-
 const TrashButton = styled.button`
   width: 24px;
   height: 24px;
@@ -59,8 +46,8 @@ export const OrderListItem = ({ order }) => (
       <ItemName>{order.name}</ItemName>
       {order.topping
         .filter(topping => topping.checked)
-        .map((toppingItem, index) => <ToppingsListItem key={index}>{toppingItem.name}</ToppingsListItem>)}
-      <ChoicesListItem>{order.choice}</ChoicesListItem>
+        .map((toppingItem, index) => <ListItem key={index}>{toppingItem.name}</ListItem>)}
+      <ListItem>{order.choice}</ListItem>
     </ItemCompose>
     <span>{order.count}</span>
     <ItemPrice>{formatCurrency(totalPriceItems(order))}

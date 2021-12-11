@@ -1,37 +1,17 @@
 import React from 'react';
-import styled from 'styled-components';
-
-const ChoiceWrap = styled.div`
-  display: flex;
-  flex-direction: column;
-  max-width: 400px;
-  height: 100px;
-  flex-wrap: wrap;
-  margin: 0 53px 0 37px;
-`;
-
-const ChoiceRadio = styled.input`
-  margin-right: 5px;
-  cursor: pointer;
-`;
-
-const ChoiceLabel = styled.label`
-  cursor: pointer;
-  margin: 5px;
-`;
-
-const ChoiceHeader = styled.h3`
-  margin: 0 53px 10px 37px;
-`;
+import { Wrap } from '../Style/ToppingsStyle';
+import { Label } from '../Style/ToppingsStyle';
+import { Checkbox } from '../Style/ToppingsStyle';
+import { Header } from '../Style/ToppingsStyle';
 
 export function Choices({ openItem, choice, changeChoices }) {
   return (
     <>
-      <ChoiceHeader>Выбирайте</ChoiceHeader>
-      <ChoiceWrap>
+      <Header>Выбирайте</Header>
+      <Wrap>
         {openItem.choices.map((item, i) => (
-          <ChoiceLabel key={i}>
-            <ChoiceRadio
+          <Label key={i}>
+            <Checkbox
               type='radio'
               name='choices'
               value={item}
@@ -39,9 +19,9 @@ export function Choices({ openItem, choice, changeChoices }) {
               onChange={changeChoices}
             />
             {item}
-          </ChoiceLabel>
+          </Label>
         ))}
-      </ChoiceWrap>
+      </Wrap>
     </>
   );
 }
